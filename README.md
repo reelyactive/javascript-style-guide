@@ -39,35 +39,35 @@ Let's get the opinionated stuff out of the way first.
 
 ### Indentation
 
-Two words: __two spaces__.  A tab should never find its way into any source code file.
+:two: Two words: __two spaces__.  A tab should never find its way into any source code file.
 
 ### Line Length
 
-Limit lines to __80 characters__.  Occasionally a long string may require this rule to be broken.  Start a new line at the first opportunity.
+:eight::zero: Limit lines to __80 characters__.  Occasionally a long string may require this rule to be broken.  Start a new line at the first opportunity.
 
 ### Semicolons
 
-Yes, __use semicolons__.  What is this, Python?
+:white_check_mark: Yes, __use semicolons__.  What is this, Python?
 
 ```javascript
-const isJavaScript = true; // :white_check_mark:
-const isPython = false     // :x:
+const isJavaScript = true; // Looks good!
+const isPython = false     // Nope!
 
 ```
 
 ### Added Space
 
-__No.__  Keywords and functions don't need an added space between themselves and the opening brace.
+:no_entry_sign: __No.__  Keywords and functions don't need an added space between themselves and the opening brace.
 
 ```javascript
-function embraceTheBrace() { // :white_check_mark:
-  if(isPerfectlyReadable) {  // :white_check_mark:
+function embraceTheBrace() { // Looks good!
+  if(isPerfectlyReadable) {  // Looks good!
 
   }
 }
 
-function spaceTheBrace () {  // :x:
-  if (isStandardJS) {        // :x:
+function spaceTheBrace () {  // Nope!
+  if (isStandardJS) {        // Nope!
 
   }
 }
@@ -76,25 +76,25 @@ function spaceTheBrace () {  // :x:
 
 ### Closing Curlies
 
-Closing curly braces are the __end of the line__.  Is it not equitable for `if/else` and `try/catch` to reside at the same level of indentation?
+:stop_sign: Closing curly braces are the __end of the line__.  Is it not equitable for `if/else` and `try/catch` to reside at the same level of indentation?
 
 ```javascript
 if(isTheRightWay) {
 
 }
-else {              // :white_check_mark:
+else {              // Looks good!
   try {
 
   }
-  catch(err) { }    // :white_check_mark:
+  catch(err) { }    // Looks good!
 }
 
 if(isTheWrongWay) {
 
-} else {            // :x:
+} else {            // Nope!
   try {
 
-  } catch(err) { }  // :x:
+  } catch(err) { }  // Nope!
 }
 
 ```
