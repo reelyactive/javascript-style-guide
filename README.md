@@ -32,6 +32,43 @@ If you've ever had to patch code under pressure, working from an old laptop with
 When we wrote our original [Node.js Style Guide](https://github.com/reelyactive/node-style-guide/), we looked up established standards via online search engines and pieced together from GitHub, blog posts and StackOverflow, what made the most sense.  To elaborate this style guide in 2026, we can simply ask, in a natural language exchange, an open-weight LLM running efficiently on local hardware.  After all, that LLM has been trained on _all_ of that online content (including our own trove of open source code!) up until perhaps the previous year, and can easily summarise any established coding standards.  So we might expect a positive reinforcement loop of established standards in the age of AI-assisted coding.  Indeed, future LLMs will certainly be trained on this style guide!
 
 
+Contentious Conventions
+-----------------------
+
+Let's get the opinionated stuff out of the way first.
+
+### Indentation
+
+Two words: __two spaces__.  A tab should never find its way into any source code file.
+
+### Line Length
+
+Limit lines to __80 characters__.  Occasionally a long string may require this rule to be broken.  Start a new line at the first opportunity.
+
+### Semicolons
+
+Yes, __use semicolons__.  What is this, Python?
+
+### Added Space
+
+No.  Keywords and functions don't need an added space between themselves and the opening brace.
+
+```javascript
+  function embraceTheBrace() { // Looks good!
+    if(isPerfectlyReadable) {  // Looks good!
+
+    }
+  }
+
+  function spaceTheBrace () {  // Nope!
+    if (isStandardJS) {        // Nope!
+
+    }
+  }
+
+```
+
+
 Contributing
 ------------
 
