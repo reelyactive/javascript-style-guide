@@ -49,22 +49,53 @@ Limit lines to __80 characters__.  Occasionally a long string may require this r
 
 Yes, __use semicolons__.  What is this, Python?
 
+```javascript
+const isJavaScript = true; // :white_check_mark:
+const isPython = false     // :x:
+
+```
+
 ### Added Space
 
-No.  Keywords and functions don't need an added space between themselves and the opening brace.
+__No.__  Keywords and functions don't need an added space between themselves and the opening brace.
 
 ```javascript
-  function embraceTheBrace() { // Looks good!
-    if(isPerfectlyReadable) {  // Looks good!
+function embraceTheBrace() { // :white_check_mark:
+  if(isPerfectlyReadable) {  // :white_check_mark:
 
-    }
   }
+}
 
-  function spaceTheBrace () {  // Nope!
-    if (isStandardJS) {        // Nope!
+function spaceTheBrace () {  // :x:
+  if (isStandardJS) {        // :x:
 
-    }
   }
+}
+
+```
+
+### Closing Curlies
+
+Closing curly braces are the __end of the line__.  Is it not equitable for `if/else` and `try/catch` to reside at the same level of indentation?
+
+```javascript
+if(isTheRightWay) {
+
+}
+else {              // :white_check_mark:
+  try {
+
+  }
+  catch(err) { }    // :white_check_mark:
+}
+
+if(isTheWrongWay) {
+
+} else {            // :x:
+  try {
+
+  } catch(err) { }  // :x:
+}
 
 ```
 
