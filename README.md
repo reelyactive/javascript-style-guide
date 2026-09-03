@@ -100,6 +100,45 @@ if(isTheWrongWay) {
 ```
 
 
+Regular Rules
+-------------
+
+Now, here are the rules.
+
+### Naming Convention
+
+Function and variable names are lowerCamelCase, class names are UpperCamelCase, constant names are SCREAMING_SNAKE_CASE and filenames are flatcase.
+
+- functionNamesLikeThis
+- variableNamesLikeThis
+- ClassNamesLikeThis
+- CONSTANT_VALUES_LIKE_THIS
+- filenameslikethis.js
+
+
+Development Tools
+-----------------
+
+Here are the familiar, established, industry-standard tools to assist the achievement of our aspirations.
+
+### JSDoc for Documentation
+
+Use [JSDoc](https://jsdoc.app/), it has been around longer than we've been coding JavaScript.  See examples below.
+
+```javascript
+/**
+ * Determine if the documentation is good based on the use of JSDoc.
+ * @param {boolean} isJsDoc - Whether or not JSDoc is used.
+ * @returns {boolean} Whether or not the documentation is good.
+ */
+function isGoodDocumentation(isJsDoc) {
+  return isJsDoc;
+}
+```
+
+Although it is not required to use `@class` and `@constructor` tags with ES 2015 classes, these tags should nonetheless still be used for human readability of the code/comments.
+
+
 Contributing
 ------------
 
