@@ -138,6 +138,27 @@ function isGoodDocumentation(isJsDoc) {
 
 Although it is not required to use `@class` and `@constructor` tags with ES 2015 classes, these tags should nonetheless still be used for human readability of the code/comments.
 
+### Built-In Test Runners
+
+Use the native test runner, [node:test](https://nodejs.org/api/test.html), to run tests in Node.js (introduced in v20).  Write tests in plain JavaScript using the Node.js standard library, which should ensure compatibility with Deno and Bun's respective native test runners.  For example:
+
+```javascript
+import { test, describe } from 'node:test';
+import assert from 'node:assert';
+
+describe('Math Test', () => {
+
+  test('addition works', () => {
+    assert.strictEqual(1 + 1, 2);
+  });
+
+  test('subtraction works', () => {
+    assert.strictEqual(5 - 2, 3);
+  });
+
+});
+```
+
 
 Contributing
 ------------
