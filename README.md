@@ -115,6 +115,85 @@ Function and variable names are lowerCamelCase, class names are UpperCamelCase, 
 - CONSTANT_VALUES_LIKE_THIS
 - filenameslikethis.js
 
+### Variables
+
+Use `const` by default.  Use `let` for variables that will be reassigned.  Never use `var`.
+
+Note that `const` simply implies that the _binding_ is unchangeable: if you change it to refer to something else, a `TypeError` will be thrown.  If `const` refers to a primitive (ex: number), you _cannot_ change that primitive, but if it refers to an object, you _can_ modify the object itself.
+
+```javascript
+// Use "const" because it will always refer to the same array or object
+const mascots = [ 'barnowl', 'barnacles', 'beaver' ];
+const user = { name: "jeffyactive" };
+
+// Use "let" because the primitive changes
+for(let index = 0; index < mascots.length; index++) {
+
+}
+
+// This is okay because mascots still refers to the same array
+mascots.push('chickadee');
+
+// This is okay because user still refers to the same object
+user.role = "BDFL";
+
+// The following would change the reference and result in a TypeError
+mascots = [ 'Youppi!' ];  // Don't do this!
+user = { name: "user" };  // Don't do this!
+```
+
+#### Avoiding Mutation
+
+In some cases, it may be preferable to create a shallow copy to avoid mutating the original object.  For example:
+
+```javascript
+const user = { name: "jeffyactive", role: "guest" };
+const superuser = { ...user, role: "admin" }; // Shallow copy with updated role
+```
+
+[Spread syntax (...)](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Spread_syntax) should be used in this context for readability.
+
+#### Destructuring
+
+Use [destructuring](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Destructuring) to improve readability in functions and variable assignments.
+
+For example, functions that accept objects or arrays as parameters can use destructuring to access the properties of interest.
+
+```javascript
+const user = { name: "jeffyactive, role: "guest", id: 42 };
+const position = [ 6.154208, 46.202582, 375 ];
+
+function printUser({ name, role }) {
+  console.log(`User ${name} has role ${role}`);
+}
+
+function printLatLon([ longitude, latitude ]) {
+  console.log(`Latitude ${latitude}, Longitude ${longitude}`);
+}
+
+function printAltitude([ , , altitude ]) {
+  console.log(`Altitude ${altitude}`);
+}
+
+printUser(user);
+printLatLon(position);
+printAltitude(position);
+```
+
+For example, an options object with many optional properties can have default values set elegantly using destructuring.
+
+```javascript
+class Classy {
+
+  constructor(options) {
+    const { isDebug: false } = options; // Set the default options
+
+    if(options.isDebug) { }
+  }
+
+}
+```
+
 ### Strings
 
 There are three options.  Always choose the correct one.
