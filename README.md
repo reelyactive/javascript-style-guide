@@ -250,8 +250,7 @@ class Classy extends EventEmitter {
    */
   constructor(options) {
     super();
-    options = options || {};
-    options.someVariable = options.someVariable || I_AM_A_CONSTANT;
+    const { someVariable: I_AM_A_CONSTANT } = options; // Default options
 
     this.someLocalClass = new SomeLocalClass(options);
   }
