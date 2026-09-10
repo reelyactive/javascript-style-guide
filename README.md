@@ -116,6 +116,100 @@ Function and variable names are lowerCamelCase, class names are UpperCamelCase, 
 - filenameslikethis.js
 
 
+Code Examples
+-------------
+
+It's cool to follow the rules, but it's easier to examine examples.
+
+### Classy Example
+
+The following is an example class called `Classy` which would reside in `classy.js`.
+
+```javascript
+/**
+ * Copyright reelyActive 2026
+ * We believe in an open Internet of Things
+ */
+
+import { EventEmitter } from 'events';
+import Raddec from 'raddec';
+import SomeLocalClass from './somelocalclass.js';
+
+const I_AM_A_CONSTANT = 42;
+
+/**
+ * Classy Class
+ * Serves as an example of a class.
+ */
+class Classy extends EventEmitter {
+
+  /**
+   * Classy constructor
+   * @param {Object} options The options as a JSON object.
+   * @constructor
+   */
+  constructor(options) {
+    super();
+    options = options || {};
+    options.someVariable = options.someVariable || I_AM_A_CONSTANT;
+
+    this.someLocalClass = new SomeLocalClass(options);
+  }
+
+  /**
+   * Emit something, as an example.
+   * @param {Object} something The thing to emit.
+   */
+  emitSomething(something) {
+    this.emit("something", something);
+  }
+
+}
+
+// It is possible to re-export modules, as required
+export { default as SomeLocalClass } from './somelocalclass.js';
+export default Classy;
+
+```
+
+If you're wondering how to import those modules in another file, it works like this:
+
+```javascript
+import Classy, { SomeLocalClass } from 'classy'; // or './classy.js' if local
+```
+
+### Web Example
+
+The following is an example of a web app, with JavaScript modules imported in HTML using `type=importmap` for dependencies (in the `<head>`) and `type=module` for the application code itself (at the end of the `<body`).
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <script type="importmap">
+    {
+      "imports": {
+        "mqtt": "./js/mqtt.esm.js",
+        "cbor2": "./js/cbor2.esm.js"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    The web page code goes here…
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
+```
+
+In the JavaScript app (`js/app.js`), the dependencies can then be imported as modules.
+
+```javascript
+import mqtt from 'mqtt';
+import { decode } from 'cbor2';
+```
+
+
 Development Tools
 -----------------
 
