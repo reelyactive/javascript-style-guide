@@ -115,6 +115,27 @@ Function and variable names are lowerCamelCase, class names are UpperCamelCase, 
 - CONSTANT_VALUES_LIKE_THIS
 - filenameslikethis.js
 
+### Strings
+
+There are three options.  Always choose the correct one.
+
+- Simple strings use single quotes ('')
+- JSON uses double quotes ("")
+- Dynamic (and multi-line) strings use backticks (``)
+
+```javascript
+const DEFAULT_GREETING = 'Hello World!';
+const someObject = { style: "Double Quotes" };
+console.log(`The default greeting is ${DEFAULT_GREETING}`);
+
+const multiLineAsciiArt = `
+ (o v o)
+ /\\___/\\
+  ^   ^
+`.trim();
+console.log(multiLineAsciiArt);
+```
+
 
 Code Examples
 -------------
