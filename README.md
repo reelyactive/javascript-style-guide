@@ -145,7 +145,7 @@ class Classy extends EventEmitter {
 
   /**
    * Classy constructor
-   * @param {Object} options The options as a JSON object.
+   * @param {object} options - The options as a JSON object.
    * @constructor
    */
   constructor(options) {
@@ -158,7 +158,7 @@ class Classy extends EventEmitter {
 
   /**
    * Emit something, as an example.
-   * @param {Object} something The thing to emit.
+   * @param {object} something - The thing to emit.
    */
   emitSomething(something) {
     this.emit("something", something);
@@ -180,7 +180,7 @@ import Classy, { SomeLocalClass } from 'classy'; // or './classy.js' if local
 
 ### Web Example
 
-The following is an example of a web app, with JavaScript modules imported in HTML using `type=importmap` for dependencies (in the `<head>`) and `type=module` for the application code itself (at the end of the `<body`).
+The following is an example of a web app, with JavaScript modules imported in HTML using `type=importmap` for dependencies (in the `<head>`) and `type=module` for the application code itself (at the end of the `<body>`).
 
 ```html
 <!doctype html>
@@ -228,6 +228,24 @@ Use [JSDoc](https://jsdoc.app/), it has been around longer than we've been codin
 function isGoodDocumentation(isJsDoc) {
   return isJsDoc;
 }
+```
+
+The data types are lowercase unless they are built-in objects or custom classes.  See examples below, including the unique representation of arrays of a specific data type.
+
+```javascript
+/**
+ * Observe the case (lowercase/uppercase) of the data types below.
+ * @param {boolean} isSomething - Primitives are lowercase.
+ * @param {number} someNumber - Primitives are lowercase.
+ * @param {object} someObject - Primitives are lowercase.
+ * @param {string} someString - Primitives are lowercase.
+ * @param {string[]} someStringArray - Arrays of primitives are lowercase.
+ * @param {Array} someArray - Built-in objects are Uppercase.
+ * @param {Date} someDate - Built-in objects are Uppercase.
+ * @param {Map} someMap - Built-in objects are Uppercase.
+ * @param {Classy} someClass - Custom classes are Uppercase.
+ * @param {Classy[]} someClassArray - Arrays of custom classes are Uppercase.
+ */
 ```
 
 Although it is not required to use `@class` and `@constructor` tags with ES 2015 classes, these tags should nonetheless still be used for human readability of the code/comments.
