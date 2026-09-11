@@ -227,14 +227,14 @@ const uppercaseMascotsThatStartWithB = mascots
 
 ```
 
-| Method    | Purpose                  | Returns        |
-|:----------|:-------------------------|:---------------|
-| .map()    | Transform every item     | New Array      |
-| .filter() | Filter out items         | New Array      |
-| .find()   | Find a single item       | The item       |
-| .some()   | Check if any items match | Boolean        |
-| .every()  | Check if all items match | Boolean        |
-| .reduce() | Calculate a single value | A single value |
+| Method      | Purpose                  | Returns        |
+|:------------|:-------------------------|:---------------|
+| `.map()`    | Transform every item     | New Array      |
+| `.filter()` | Filter out items         | New Array      |
+| `.find()`   | Find a single item       | The item       |
+| `.some()`   | Check if any items match | Boolean        |
+| `.every()`  | Check if all items match | Boolean        |
+| `.reduce()` | Calculate a single value | A single value |
 
 Any minor performance penalty (compared to a `for` loop) is more than offset by the readability benefit, with the exception of critical, high-intensity operations.
 
@@ -302,7 +302,7 @@ import Classy, { SomeLocalClass } from 'classy'; // or './classy.js' if local
 
 ### Web Example
 
-The following is an example of a web app, with JavaScript modules imported in HTML using `type=importmap` for dependencies (in the `<head>`) and `type=module` for the application code itself (at the end of the `<body>`).
+The following is an example of a web app, with JavaScript modules imported in the `<head>` of the HTML using `type=importmap` for dependencies followed by the application code itself, using `type=module`.  All modules are implicitly `defer`red until the HTML is parsed, at which point they are executed in order.
 
 ```html
 <!doctype html>
@@ -316,10 +316,10 @@ The following is an example of a web app, with JavaScript modules imported in HT
       }
     }
     </script>
+    <script type="module" src="js/app.js"></script>
   </head>
   <body>
     The web page code goes here…
-    <script type="module" src="js/app.js"></script>
   </body>
 </html>
 ```
