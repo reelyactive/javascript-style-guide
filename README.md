@@ -196,7 +196,7 @@ class Classy {
 
 ### Strings
 
-There are three options.  Always choose the correct one.
+There are three options.  Always choose the correct one.  Make no mistakes.
 
 - Simple strings use single quotes ('')
 - JSON uses double quotes ("")
@@ -214,6 +214,29 @@ const multiLineAsciiArt = `
 `.trim();
 console.log(multiLineAsciiArt);
 ```
+
+### Declarative Array Methods
+
+Favour declarative array methods such as `map()`, `filter()` and `reduce()` over imperative `for` loops to improve readability.
+
+```javascript
+const mascots = [ 'barnowl', 'barnacles', 'beaver', 'chickadee', 'cuttlefish' ];
+const uppercaseMascotsThatStartWithB = mascots
+    .filter(m => m.startsWith('b'))
+    .map(m => m.toUpperCase());
+
+```
+
+| Method    | Purpose                  | Returns        |
+|:----------|:-------------------------|:---------------|
+| .map()    | Transform every item     | New Array      |
+| .filter() | Filter out items         | New Array      |
+| .find()   | Find a single item       | The item       |
+| .some()   | Check if any items match | Boolean        |
+| .every()  | Check if all items match | Boolean        |
+| .reduce() | Calculate a single value | A single value |
+
+Any minor performance penalty (compared to a `for` loop) is more than offset by the readability benefit, with the exception of critical, high-intensity operations.
 
 
 Code Examples
