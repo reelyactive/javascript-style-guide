@@ -86,7 +86,9 @@ else {              // Looks good!
   try {
 
   }
-  catch(err) { }    // Looks good!
+  catch(err) {      // Looks good!
+
+  }
 }
 
 if(isTheWrongWay) {
@@ -123,7 +125,7 @@ Note that `const` simply implies that the _binding_ is unchangeable: if you chan
 
 ```javascript
 // Use "const" because it will always refer to the same array or object
-const mascots = [ 'barnowl', 'barnacles', 'beaver' ];
+const mascots = [ "barnowl", "barnacles", "beaver" ];
 const user = { name: "jeffyactive" };
 
 // Use "let" because the primitive changes
@@ -132,13 +134,13 @@ for(let index = 0; index < mascots.length; index++) {
 }
 
 // This is okay because mascots still refers to the same array
-mascots.push('chickadee');
+mascots.push("chickadee");
 
 // This is okay because user still refers to the same object
 user.role = "BDFL";
 
 // The following would change the reference and result in a TypeError
-mascots = [ 'Youppi!' ];  // Don't do this!
+mascots = [ "Youppi!" ];  // Don't do this!
 user = { name: "user" };  // Don't do this!
 ```
 
@@ -198,12 +200,12 @@ class Classy {
 
 There are three options.  Always choose the correct one.  Make no mistakes.
 
-- Simple strings use single quotes ('')
-- JSON uses double quotes ("")
-- Dynamic (and multi-line) strings use backticks (``)
+- Simple strings (and JSON) use double quotes (":white_check_mark:")
+- Dynamic (and multi-line) strings use backticks (`:white_check_mark:`)
+- Never use single quotes (':no_entry_sign:')
 
 ```javascript
-const DEFAULT_GREETING = 'Hello World!';
+const DEFAULT_GREETING = "Hello World!";
 const someObject = { style: "Double Quotes" };
 console.log(`The default greeting is ${DEFAULT_GREETING}`);
 
@@ -220,10 +222,10 @@ console.log(multiLineAsciiArt);
 Favour declarative array methods such as `map()`, `filter()` and `reduce()` over imperative `for` loops to improve readability.
 
 ```javascript
-const mascots = [ 'barnowl', 'barnacles', 'beaver', 'chickadee', 'cuttlefish' ];
+const mascots = [ "barnowl", "barnacles", "beaver", "chickadee", "cuttlefish" ];
 const uppercaseMascotsThatStartWithB = mascots
-    .filter(m => m.startsWith('b'))
-    .map(m => m.toUpperCase());
+    .filter((m) => m.startsWith("b"))
+    .map((m) => m.toUpperCase());
 
 ```
 
@@ -254,9 +256,9 @@ The following is an example class called `Classy` which would reside in `classy.
  * We believe in an open Internet of Things
  */
 
-import { EventEmitter } from 'events';
-import Raddec from 'raddec';
-import SomeLocalClass from './somelocalclass.js';
+import { EventEmitter } from "node:events";
+import Raddec from "raddec";
+import SomeLocalClass from "./somelocalclass.js";
 
 const I_AM_A_CONSTANT = 42;
 
@@ -289,7 +291,7 @@ class Classy extends EventEmitter {
 }
 
 // It is possible to re-export modules, as required
-export { default as SomeLocalClass } from './somelocalclass.js';
+export { default as SomeLocalClass } from "./somelocalclass.js";
 export default Classy;
 
 ```
@@ -297,7 +299,7 @@ export default Classy;
 If you're wondering how to import those modules in another file, it works like this:
 
 ```javascript
-import Classy, { SomeLocalClass } from 'classy'; // or './classy.js' if local
+import Classy, { SomeLocalClass } from "classy"; // or "./classy.js" if local
 ```
 
 ### Web Example
@@ -327,8 +329,8 @@ The following is an example of a web app, with JavaScript modules imported in th
 In the JavaScript app (`js/app.js`), the dependencies can then be imported as modules.
 
 ```javascript
-import mqtt from 'mqtt';
-import { decode } from 'cbor2';
+import mqtt from "mqtt";
+import { decode } from "cbor2";
 ```
 
 
@@ -377,16 +379,16 @@ Although it is not required to use `@class` and `@constructor` tags with ES 2015
 Use the native test runner, [node:test](https://nodejs.org/api/test.html), to run tests in Node.js (introduced in v20).  Write tests in plain JavaScript using the Node.js standard library, which should ensure compatibility with Deno and Bun's respective native test runners.  For example:
 
 ```javascript
-import { test, describe } from 'node:test';
-import assert from 'node:assert';
+import { test, describe } from "node:test";
+import assert from "node:assert";
 
-describe('Math Test', () => {
+describe("Math Test", () => {
 
-  test('addition works', () => {
+  test("addition works", () => {
     assert.strictEqual(1 + 1, 2);
   });
 
-  test('subtraction works', () => {
+  test("subtraction works", () => {
     assert.strictEqual(5 - 2, 3);
   });
 
